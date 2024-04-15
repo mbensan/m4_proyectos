@@ -13,8 +13,24 @@ public class BankAccount {
     numCtas += 1;
   }
 
+  public void transferir(BankAccount receptor, int monto) {
+    if (this.saldoCtaCte < monto) {
+      System.out.println("Saldo insuficiente");
+      return;
+    }
+    this.saldoCtaCte -= monto;
+    receptor.saldoCtaCte += monto;
+    // se debe procurar que exista saldo suficiente
+  }
+
   public void addToCtaCte(int monto) {
-    // hacer algo
+    this.saldoCtaCte += monto;
+    totalDinero += monto;
+  }
+
+  public void addToCtaAhorro(int monto) {
+    this.saldoCtaAhorro += monto;
+    totalDinero += monto;
   }
 
   static private String getNewNum() {
